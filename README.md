@@ -1,0 +1,2 @@
+# myblogtry
+blog
