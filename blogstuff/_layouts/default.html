@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <style>
+    .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .post-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; }
+    .featured-image { max-width: 100%; height: auto; border-radius: 4px; }
+    .pagination { margin-top: 20px; }
+    .pagination a { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  {{ content }}
+</body>
+</html>
