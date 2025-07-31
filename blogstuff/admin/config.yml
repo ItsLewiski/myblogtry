@@ -27,10 +27,11 @@ collections:
     media_folder: "/uploads"
     public_folder: "../uploads"
     summary: "{{title}} - {{day}}/{{month}}/{{year}}"
-    preview_path: "/{{slug}}"
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: "/articles/{{fields.custom_slug}}"
+    slug: "{{fields.custom_slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Custom Slug", name: "custom_slug", widget: "string", pattern: ["^[a-z0-9-]+$", "Must be lowercase and contain only letters, numbers, and dashes"], hint: "This will be added to myblogtry.netlify.app/articles/" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - {
