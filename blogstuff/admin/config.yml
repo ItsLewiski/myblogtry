@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: ItsLewiski/myblogtry # Path to your GitHub repository
-  branch: master # Branch to update (master by default)
+  branch: main # Branch to update (master by default)
   site_domain: myblogtry.netlify.app #Your site on netlify
   use_graphql: true
 
