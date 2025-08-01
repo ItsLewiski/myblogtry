@@ -1,30 +1,84 @@
-backend:
-  name: github
-  repo: ItsLewiski/myblogtry
-  branch: main
-  site_domain: myblogtry.netlify.app
-  use_graphql: true
+---
+layout: default
+title: Blog
+---
 
-publish_mode: editorial_workflow
-show_preview_links: true
-display_url: https://myblogtry.netlify.app
-logo_url: https://myblogtry.netlify.app/images/uploads/logo.jpg
+<h1 class="page-title">Latest Posts</h1>
 
-media_folder: "uploads"
-public_folder: "/uploads"
+<div class="post-grid">
+  {% for post in site.posts %}
+  <div class="post-card">
+    <img src="{{ post.image }}" alt="{{ post.title }}" class="post-image">
+    <div class="post-content">
+      <h2>{{ post.title }}</h2>
+      <p class="post-description">{{ post.description }}</p>
+      <a href="{{ post.url }}" class="read-more">Read More →</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
-collections:
-  - name: "posts"
-    label: "Blog Posts"
-    folder: "_posts"
-    create: true
-    slug: "{{slug}}"
-    format: "yaml-frontmatter"
-    extension: "md"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Slug", name: "slug", widget: "string", required: true }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+<style>
+  .page-title {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .post-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .post-content {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .post-content h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .post-description {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .read-more {
+    margin-top: 1rem;
+    display: inline-block;
+    background: #007acc;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+
+  .read-more:hover {
+    background: #005fa3;
+  }
+</style>
