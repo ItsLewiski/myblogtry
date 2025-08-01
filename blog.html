@@ -6,6 +6,8 @@ title: Blog
 <h1 class="page-title">Latest Posts</h1>
 
 <div class="post-grid">
+  <p>Post count: {{ site.posts | size }}</p>
+
   {% for post in site.posts %}
     <div class="post-card">
       {% if post.image %}
