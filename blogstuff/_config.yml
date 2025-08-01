@@ -2,7 +2,7 @@ title: My Blog Site
 description: A blog powered by Jekyll and Netlify CMS
 baseurl: "/myblogtry" # change this to your repo name if deploying to GitHub Pages
 url: "https://myblogtry.netlify.app" # change this to your custom domain
-permalink: /:slug/
+permalink: /blog/:slug/
 
 
 paginate: 10
